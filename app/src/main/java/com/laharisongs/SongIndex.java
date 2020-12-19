@@ -1,0 +1,81 @@
+package com.laharisongs;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+public class SongIndex extends AppCompatActivity {
+
+    public String[] songs = new String[0];
+    public int bookNo;
+    public int lang;
+    public Button book;
+    public String bookName = "";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_song_index);
+
+        LinearLayout songsIndex = (LinearLayout) findViewById(R.id.songIndex);
+        bookNo = getIntent().getExtras().getInt("indexOfSong");
+        lang = getIntent().getExtras().getInt("indexOflang");
+
+        switch(lang) {
+            case 0:
+                bookName += BookNameConstant.TA_BOOK[bookNo];
+                break;
+            case 1:
+                bookName += BookNameConstant.TE_BOOK[bookNo];
+                break;
+            case 2:
+                bookName += BookNameConstant.E_BOOK[bookNo];
+                break;
+            case 3:
+                bookName += BookNameConstant.H_BOOK[bookNo];
+                break;
+        }
+
+        songs = renderIndex();
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(0, 10, 0, 10);
+
+        for(int i=0; i<songs.length; i++) {
+            book = new Button(this);
+            book.setText(songs[i]);
+            book.setId(i);
+            book.setBackgroundColor(getResources().getColor(R.color.button));
+            book.setLayoutParams(params);
+            book.setOnClickListener(v -> {
+                addClick(v.getId());
+            });
+            songsIndex.addView(book);
+        }
+//        System.out.println("\n\n"+book.getId()+"\n\n");
+    }
+
+    public String[] renderIndex() {
+        switch(bookName) {
+            case "DN" :
+                return IndexNameConstant.DN;
+            case "IG" :
+                return IndexNameConstant.IG;
+            case "ES" :
+                return IndexNameConstant.ES;
+            case "EC" :
+                return IndexNameConstant.EC;
+        }
+        return null;
+    }
+
+    public void addClick(int n) {
+        Intent intent = new Intent(this, SongPageViewer.class);
+        intent.putExtra("bookName", bookName);
+        intent.putExtra("songNo", n);
+        startActivity(intent);
+    }
+}
