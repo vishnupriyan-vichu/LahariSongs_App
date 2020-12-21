@@ -3,6 +3,7 @@ package com.laharisongs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
@@ -17,9 +18,9 @@ public class SongPageViewer extends AppCompatActivity {
         pdfView = findViewById(R.id.pdfView);
         pdfView.setKeepScreenOn(true);
         pdfView.fitToWidth();
-        pdfView.setMinZoom(1.75f);
+        pdfView.setMinZoom(1.25f);
         pdfView.setMidZoom(2f);
-        pdfView.setMaxZoom(2.5f);
+        pdfView.setMaxZoom(2.75f);
 
         String song = getIntent().getExtras().getString("bookName")+"/"+getIntent().getExtras().getString("bookName")+(getIntent().getExtras().getInt("songNo")+1)+".pdf";
         System.out.println();

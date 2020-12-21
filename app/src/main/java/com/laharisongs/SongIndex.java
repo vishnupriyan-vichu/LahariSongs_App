@@ -1,8 +1,10 @@
 package com.laharisongs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -41,11 +43,19 @@ public class SongIndex extends AppCompatActivity {
 
         songs = renderIndex();
 
+        int margin = 30;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0, 10, 0, 10);
+        params.setMargins(margin, margin, margin, 0);
 
         for(int i=0; i<songs.length; i++) {
             book = new Button(this);
+            System.out.println("bookName "+bookName);
+            if(bookName.equals("SofR")) {
+                book.setAllCaps(false);
+                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
+                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
+                book.setTypeface(tamilBibleBold);
+            }
             book.setText(songs[i]);
             book.setId(i);
             book.setBackgroundColor(getResources().getColor(R.color.button));
@@ -55,19 +65,21 @@ public class SongIndex extends AppCompatActivity {
             });
             songsIndex.addView(book);
         }
-//        System.out.println("\n\n"+book.getId()+"\n\n");
+        System.out.println("\n\n"+book.getId()+"\n\n");
     }
 
     public String[] renderIndex() {
         switch(bookName) {
-            case "DN" :
-                return IndexNameConstant.DN;
+            case "SofR" :
+                return IndexNameConstant.SofR;
             case "IG" :
                 return IndexNameConstant.IG;
             case "ES" :
                 return IndexNameConstant.ES;
             case "EC" :
                 return IndexNameConstant.EC;
+            case "GHc" :
+                return IndexNameConstant.GHc;
         }
         return null;
     }

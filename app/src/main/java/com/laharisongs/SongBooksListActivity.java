@@ -1,8 +1,10 @@
 package com.laharisongs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -51,7 +53,14 @@ public class SongBooksListActivity extends AppCompatActivity {
         params.setMargins(0, 10, 0, 10);
         for(int i=0; i<books.length; i++) {
             book = new Button(this);
+            if(lang==0) {
+                book.setAllCaps(false);
+                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
+                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
+                book.setTypeface(tamilBibleBold);
+            }
             book.setText(books[i]);
+            System.out.println(book.getText());
             book.setId(i);
             book.setBackgroundColor(getResources().getColor(R.color.button));
             book.setLayoutParams(params);
