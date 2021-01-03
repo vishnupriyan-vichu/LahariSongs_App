@@ -10,9 +10,13 @@
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp" />
+        android:layout_height="match_parent"/>
+<!--    <com.github.barteksc.pdfviewer.PDFView-->
+<!--        android:id="@+id/pdfView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/background"-->
+<!--        tools:layout_editor_absoluteX="10dp"-->
+<!--        tools:layout_editor_absoluteY="10dp" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

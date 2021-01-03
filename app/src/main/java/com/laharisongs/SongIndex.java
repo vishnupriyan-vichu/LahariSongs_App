@@ -50,8 +50,8 @@ public class SongIndex extends AppCompatActivity {
         for(int i=0; i<songs.length; i++) {
             book = new Button(this);
             System.out.println("bookName "+bookName);
-            if(bookName.equals("SofR")) {
-                book.setAllCaps(false);
+            book.setAllCaps(false);
+            if(bookName.equals("SofR") && i>0) {
                 Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
                 Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
                 book.setTypeface(tamilBibleBold);
@@ -80,6 +80,10 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.EC;
             case "GHc" :
                 return IndexNameConstant.GHc;
+            case "HS" :
+                return IndexNameConstant.HS;
+            case "GN" :
+                return IndexNameConstant.GN;
         }
         return null;
     }
