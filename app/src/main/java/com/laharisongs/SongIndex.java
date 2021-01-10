@@ -74,6 +74,8 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.SofR;
             case "IG" :
                 return IndexNameConstant.IG;
+            case "LN" :
+                return IndexNameConstant.LN;
             case "ES" :
                 return IndexNameConstant.ES;
             case "EC" :

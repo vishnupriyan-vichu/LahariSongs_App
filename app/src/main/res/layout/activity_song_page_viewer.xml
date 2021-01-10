@@ -4,19 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundGray"
+    android:background="@color/background"
     tools:context=".SongPageViewer">
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-<!--    <com.github.barteksc.pdfviewer.PDFView-->
-<!--        android:id="@+id/pdfView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@color/background"-->
-<!--        tools:layout_editor_absoluteX="10dp"-->
-<!--        tools:layout_editor_absoluteY="10dp" />-->
+        <!--    <com.github.barteksc.pdfviewer.PDFView-->
+        <!--        android:id="@+id/pdfView"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"/>-->
 
+        <!--    <com.github.barteksc.pdfviewer.PDFView-->
+        <!--        android:id="@+id/pdfView"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:background="@color/background"-->
+        <!--        tools:layout_editor_absoluteX="10dp"-->
+        <!--        tools:layout_editor_absoluteY="10dp" />-->
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="40dp"
+            android:textIsSelectable="true"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="50dp"></TextView>
+
+        <!--        <WebView-->
+        <!--            android:id="@+id/webView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"></WebView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
