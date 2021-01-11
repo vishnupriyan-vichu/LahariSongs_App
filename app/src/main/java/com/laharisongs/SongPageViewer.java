@@ -1,66 +1,39 @@
 package com.laharisongs;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 
 public class SongPageViewer extends AppCompatActivity {
-    PDFView pdfView;
     TextView textView;
+    TextView header;
     final static float STEP = 200;
     float mRatio = 1.0f;
     int mBaseDist;
     float mBaseRatio;
     float fontsize = 13;
+    String bookName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_page_viewer);
 
-//        pdfView = findViewById(R.id.pdfView);
-//        pdfView.setKeepScreenOn(true);
-//        pdfView.fitToWidth();
-//        pdfView.setMinZoom(1.25f);
-//        pdfView.setMidZoom(2f);
-//        pdfView.setMaxZoom(2.75f);
-//
-        String song = getIntent().getExtras().getString("bookName") + "/" + getIntent().getExtras().getString("bookName") + (getIntent().getExtras().getInt("songNo") + 1);
-//        System.out.println();
-//        pdfView.fromAsset(song).load();
-
-//        textView = findViewById(R.id.textview);
-//
-//        InputStream file = null;
-//        try {
-//            file = getAssets().open(song);
-//            int i=file.read();
-//            String songText = "";
-//            while(i != -1) {
-//                songText += (char)i;
-//                i = file.read();
-//            }
-//            textView.setText(songText);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        bookName = getIntent().getExtras().getString("bookName");
+        String song = bookName + "/" + bookName + (getIntent().getExtras().getInt("songNo") + 1);
 
         textView = findViewById(R.id.textview);
+        header = findViewById(R.id.header);
         String text = "";
 
         BufferedReader reader = null;
@@ -69,7 +42,18 @@ public class SongPageViewer extends AppCompatActivity {
                     new InputStreamReader(getAssets().open(song), "UTF-8"));
             String mLine;
             boolean isCover = false;
+            System.out.println(bookName + " " + song);
+            if(bookName.equals("SofR") || (bookName.equals("IG") && !song.endsWith("8"))) {
+                textView.setAllCaps(false);
+                header.setAllCaps(false);
+                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
+                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
+                textView.setTypeface(tamilBibleBold);
+                header.setTypeface(tamilBibleBold);
+            }
             if(song.endsWith("1")) {
+                mLine = reader.readLine().replace("\\t", "  ");
+                header.setText(mLine);
                 while ((mLine = reader.readLine()) != null) {
                     if(mLine.contains("\\cover\\")) {
                         isCover = true;
@@ -83,13 +67,18 @@ public class SongPageViewer extends AppCompatActivity {
                     textView.setTextSize(28);
                     textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                     textView.setTypeface(null, Typeface.BOLD);
+                    header.setVisibility(View.GONE);
                 }
             } else {
+                mLine = reader.readLine().replace("\\t", "  ");
+                header.setText(mLine);
                 while ((mLine = reader.readLine()) != null) {
                     text += mLine.replace("\\t", "     ") + "\n";
                 }
                 textView.setText(text);
             }
+            header.setTextSize(26);
+            header.setTextColor(getResources().getColor(R.color.black));
         } catch (IOException e) {
 
         } finally {

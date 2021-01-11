@@ -49,9 +49,8 @@ public class SongIndex extends AppCompatActivity {
 
         for(int i=0; i<songs.length; i++) {
             book = new Button(this);
-            System.out.println("bookName "+bookName);
             book.setAllCaps(false);
-            if(bookName.equals("SofR") && i>0) {
+            if(bookName.equalsIgnoreCase("sofr")) {
                 Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
                 Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
                 book.setTypeface(tamilBibleBold);
@@ -65,7 +64,6 @@ public class SongIndex extends AppCompatActivity {
             });
             songsIndex.addView(book);
         }
-        System.out.println("\n\n"+book.getId()+"\n\n");
     }
 
     public String[] renderIndex() {
@@ -86,6 +84,10 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.HS;
             case "GN" :
                 return IndexNameConstant.GN;
+            case "PS" :
+                return IndexNameConstant.PS;
+            case "HP" :
+                return IndexNameConstant.HP;
         }
         return null;
     }
