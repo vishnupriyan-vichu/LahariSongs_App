@@ -6,6 +6,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -69,6 +70,12 @@ public class SongBooksListActivity extends AppCompatActivity {
             });
             booksIndex.addView(book);
         }
+    }
+
+    public void openSearchActivity(View v) {
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra("lang", lang+"");
+        startActivity(intent);
     }
 
     public void afterClick(int n) {
