@@ -7,6 +7,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -42,7 +44,6 @@ public class SongPageViewer extends AppCompatActivity {
                     new InputStreamReader(getAssets().open(song), "UTF-8"));
             String mLine;
             boolean isCover = false;
-            System.out.println(bookName + " " + song);
             if(bookName.equals("SofR") || (bookName.equals("IG") && !song.endsWith("8"))) {
                 textView.setAllCaps(false);
                 header.setAllCaps(false);
@@ -100,6 +101,24 @@ public class SongPageViewer extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void gotoNextPage(View view) {
+        if((getIntent().getExtras().getInt("songNo")+1) < getIntent().getExtras().getInt("finishingSongNo")) {
+            getIntent().putExtra("bookName", bookName);
+            getIntent().putExtra("songNo", getIntent().getExtras().getInt("songNo") + 1);
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
+    public void gotoPreviousPage(View view) {
+        if((getIntent().getExtras().getInt("songNo")-1) >= 0) {
+            getIntent().putExtra("bookName", bookName);
+            getIntent().putExtra("songNo", getIntent().getExtras().getInt("songNo") - 1);
+            finish();
+            startActivity(getIntent());
+        }
     }
 
     public boolean doScale(MotionEvent event) {

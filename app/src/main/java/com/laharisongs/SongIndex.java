@@ -49,12 +49,12 @@ public class SongIndex extends AppCompatActivity {
 
         for(int i=0; i<songs.length; i++) {
             book = new Button(this);
-            book.setAllCaps(false);
-            if(bookName.equalsIgnoreCase("sofr")) {
-                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
-                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
-                book.setTypeface(tamilBibleBold);
-            }
+//            book.setAllCaps(false);
+//            if(bookName.equalsIgnoreCase("sofr")) {
+//                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
+//                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
+//                book.setTypeface(tamilBibleBold);
+//            }
             book.setText(songs[i]);
             book.setId(i);
             book.setBackgroundColor(getResources().getColor(R.color.button));
@@ -96,6 +96,7 @@ public class SongIndex extends AppCompatActivity {
         Intent intent = new Intent(this, SongPageViewer.class);
         intent.putExtra("bookName", bookName);
         intent.putExtra("songNo", n);
+        intent.putExtra("finishingSongNo", songs.length);
         startActivity(intent);
     }
 }

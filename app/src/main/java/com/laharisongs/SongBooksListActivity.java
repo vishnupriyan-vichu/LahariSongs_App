@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SongBooksListActivity extends AppCompatActivity {
 
     public String[] books = new String[0];
     public int lang;
+    TextView languageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class SongBooksListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String language = intent.getStringExtra(BookConstant.LANGUAGE_SELECTED);
+        languageView = findViewById(R.id.language);
 
         generateBooks(language);
     }
@@ -35,20 +38,27 @@ public class SongBooksListActivity extends AppCompatActivity {
             case "TAMIL_SONG_BOOK" :
                 books = BookNameConstant.TAMIL_BOOKS;
                 lang = 0;
+                languageView.setText(getString(R.string.tamil_button));
                 break;
             case "TELUGU_SONG_BOOK" :
                 books = BookNameConstant.TELUGU_BOOKS;
                 lang = 1;
+                languageView.setText(getString(R.string.telugu_button));
                 break;
             case "ENGLISH_SONG_BOOK" :
                 books = BookNameConstant.ENGLISH_BOOKS;
                 lang = 2;
+                languageView.setText(getString(R.string.english_button));
                 break;
             case "HINDI_SONG_BOOK" :
                 books = BookNameConstant.HINDI_BOOKS;
                 lang = 3;
+                languageView.setText(getString(R.string.hindi_button));
                 break;
         }
+
+        languageView.setTextSize(28f);
+        languageView.setPadding(10,10,10,10);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(0, 10, 0, 10);
@@ -61,7 +71,6 @@ public class SongBooksListActivity extends AppCompatActivity {
                 book.setTypeface(tamilBibleBold);
             }
             book.setText(books[i]);
-            System.out.println(book.getText());
             book.setId(i);
             book.setBackgroundColor(getResources().getColor(R.color.button));
             book.setLayoutParams(params);

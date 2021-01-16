@@ -4,4 +4,6 @@
     <string name="telugu_button">తెలుగు పాటలు</string>
     <string name="hindi_button">हिंदी गाने</string>
     <string name="english_button">English songs</string>
+    <string name="previous">Previous button</string>
+    <string name="next">Next button</string>
 </resources>
