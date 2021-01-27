@@ -88,6 +88,8 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.PS;
             case "HP" :
                 return IndexNameConstant.HP;
+            case "LK" :
+                return IndexNameConstant.LK;
         }
         return null;
     }
