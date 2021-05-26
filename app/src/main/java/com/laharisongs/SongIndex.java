@@ -39,6 +39,8 @@ public class SongIndex extends AppCompatActivity {
             case 3:
                 bookName += BookNameConstant.H_BOOK[bookNo];
                 break;
+            case 4:
+                bookName += BookNameConstant.GITA_BOOK[bookNo];
         }
 
         songs = renderIndex();
@@ -90,6 +92,12 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.HP;
             case "LK" :
                 return IndexNameConstant.LK;
+            case "BG_E" :
+                return IndexNameConstant.BG_E;
+            case "BG_T" :
+                return IndexNameConstant.BG_T;
+            case "BG_TE" :
+                return IndexNameConstant.BG_TE;
         }
         return null;
     }

@@ -33,6 +33,7 @@ public class SongPageViewer extends AppCompatActivity {
 
         bookName = getIntent().getExtras().getString("bookName");
         String song = bookName + "/" + bookName + (getIntent().getExtras().getInt("songNo") + 1);
+        System.out.println(song);
 
         textView = findViewById(R.id.textview);
         header = findViewById(R.id.header);
@@ -56,6 +57,7 @@ public class SongPageViewer extends AppCompatActivity {
                 mLine = reader.readLine().replace("\\t", "  ");
                 header.setText(mLine);
                 while ((mLine = reader.readLine()) != null) {
+                    // checking whether the page is cover page or not
                     if(mLine.contains("\\cover\\")) {
                         isCover = true;
                         text += mLine.replace("\\cover\\", "      ") + "\n";
@@ -78,7 +80,8 @@ public class SongPageViewer extends AppCompatActivity {
                 }
                 textView.setText(text);
             }
-            header.setTextSize(26);
+            header.setTextSize(20);
+            header.setTypeface(null, Typeface.BOLD);
             header.setTextColor(getResources().getColor(R.color.black));
         } catch (IOException e) {
 

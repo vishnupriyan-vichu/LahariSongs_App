@@ -123,4 +123,26 @@ public class IndexNameConstant {
             "నిజమున్నది ఇది నిత్యమురా", "భువిలో జీవవృక్షం", "ఎచ్చెను దేవుడు తానే లారయ్య", "జయ జయ గీతం", "ఓ లహరి ప్రభు నీవే సర్వమని", "లారయ్యా లహరి కృష్ణయ్యా", "లారయ్య లారయ్య మాకు తోడు నివయ్యా", "లారయ్యను నమ్ముండి", "లారయ్యను చేరి పూజింతున్",
             "నరలహరి భజన నోటనురా", "కేశవా మాధవా", "వంధనాలయ్యా లహరయ్యా", "ఏధో ఒక శబ్ధం వచింధివేళ", "కామ్ కామ్ కాకులము", "అయ్యా లారయ్యా మా దైవం నీవయ్యా", "అంధాల శ్రీ లహరికృష్ణ", "ఏమి పాడను నేను", "ఆపితే ఆగున పయణం", "మా లారయ్యా మా జీవిత భాగ్యమా"};
 
+    public static final String[] BG_E = {"Chapter I - The Yoga of Dejection of Arjuna",
+            "Chapter II - The Yoga of knowledge",
+            "Chapter III - The Yoga of action",
+            "Chapter IV - The Yoga of knowledge as well as the disciplines of Action and Knowledge",
+            "Chapter V - The Yoga of Action and Knowledge",
+            "Chapter VI - The Yoga of Self-Control",
+            "Chapter VII - The Yoga of Jnana (Knowledge of Nirguna Brahma) and Vijnana (Knowledge of Manifest Divinity)",
+            "Chapter VIII - The Yoga of the Indestructible Brahma",
+            "Chapter IX - The Yoga of sovereign Science and the Sovereign secret",
+            "Chapter X - TheYoga of Divine Glories",
+            "Chapter XI - The Yoga of the Vision of the Universal Form",
+            "Chapter XII - The Yoga of Devotion",
+            "Chapter XIII - The Yoga of discrimination between the Field and the Knower of the Field",
+            "Chapter XIV - The Yoga of Division of three Gunas",
+            "Chapter XV - The Yoga of the Supreme Person",
+            "Chapter XVI - The Yoga of Division between the Divine and the Demoniacal properties",
+            "Chapter XVII - The Yoga of the Division of the Threefold faith",
+            "Chapter XVIII - The Yoga of Liberation through the Path of Knowledge and Self - Surrender"};
+
+    public static final String[] BG_T = {};
+
+    public static final String[] BG_TE = {};
 }

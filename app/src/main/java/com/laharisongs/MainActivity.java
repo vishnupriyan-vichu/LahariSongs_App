@@ -13,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
     Button teluguSongs;
     Button hindiSongs;
     Button englishSongs;
+    Button englishGita;
+    Button tamilGita;
+    Button teluguGita;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         teluguSongs = findViewById(R.id.telugu);
         englishSongs = findViewById(R.id.english);
         hindiSongs = findViewById(R.id.hindi);
+        englishGita = findViewById(R.id.englishGita);
+        tamilGita = findViewById(R.id.tamilGita);
+        teluguGita = findViewById(R.id.teluguGita);
 
         tamilSongs.setOnClickListener(v -> {
             createBookActivity(BookConstant.TAMIL_SONG_BOOK);
@@ -36,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         });
         hindiSongs.setOnClickListener(v -> {
             createBookActivity(BookConstant.HINDI_SONG_BOOK);
+        });
+        englishGita.setOnClickListener(v -> {
+            createBookActivity(BookConstant.ENGLISH_BHAGAVAD_GITA);
+        });
+        tamilGita.setOnClickListener(v -> {
+            createBookActivity(BookConstant.TAMIL_BHAGAVAD_GITA);
+        });
+        teluguGita.setOnClickListener(v -> {
+            createBookActivity(BookConstant.TELUGU_BHAGAVAD_GITA);
         });
     }
 
@@ -53,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case HINDI_SONG_BOOK:
                 intent.putExtra(BookConstant.LANGUAGE_SELECTED, "HINDI_SONG_BOOK");
+                break;
+            case ENGLISH_BHAGAVAD_GITA:
+                intent = new Intent(this, SongIndex.class);
+                intent.putExtra("indexOflang", 4);
+                intent.putExtra("indexOfSong", 0);
+                break;
+            case TAMIL_BHAGAVAD_GITA:
+                intent = new Intent(this, SongIndex.class);
+                intent.putExtra("indexOflang", 4);
+                intent.putExtra("indexOfSong", 1);
+                break;
+            case TELUGU_BHAGAVAD_GITA:
+                intent = new Intent(this, SongIndex.class);
+                intent.putExtra("indexOflang", 4);
+                intent.putExtra("indexOfSong", 2);
                 break;
             default:
                 break;

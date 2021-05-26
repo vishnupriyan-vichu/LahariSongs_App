@@ -10,4 +10,5 @@ public class BookNameConstant {
     public static final String[] TE_BOOK = {"GN", "PS", "LK"};
     public static final String[] E_BOOK = {"ES", "EC", "GHc"};
     public static final String[] H_BOOK = {"HS", "HP"};
+    public static final String[] GITA_BOOK = {"BG_E", "BG_T", "B_TE"};
 }
