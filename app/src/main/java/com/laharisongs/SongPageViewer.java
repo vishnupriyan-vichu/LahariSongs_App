@@ -33,7 +33,6 @@ public class SongPageViewer extends AppCompatActivity {
 
         bookName = getIntent().getExtras().getString("bookName");
         String song = bookName + "/" + bookName + (getIntent().getExtras().getInt("songNo") + 1);
-        System.out.println(song);
 
         textView = findViewById(R.id.textview);
         header = findViewById(R.id.header);

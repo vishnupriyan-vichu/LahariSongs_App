@@ -41,6 +41,7 @@ public class SongIndex extends AppCompatActivity {
                 break;
             case 4:
                 bookName += BookNameConstant.GITA_BOOK[bookNo];
+                break;
         }
 
         songs = renderIndex();
