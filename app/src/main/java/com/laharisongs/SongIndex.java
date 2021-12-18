@@ -1,21 +1,20 @@
 package com.laharisongs;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.laharisongs.IndexNameConstant.BookType;
+
 public class SongIndex extends AppCompatActivity {
 
-    public String[] songs = new String[0];
-    public int bookNo;
-    public int lang;
-    public Button book;
-    public String bookName = "";
+    private String[] contents = null;
+    private String bookName = "";
+    private BookType bookType = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,53 +22,68 @@ public class SongIndex extends AppCompatActivity {
         setContentView(R.layout.activity_song_index);
 
         LinearLayout songsIndex = (LinearLayout) findViewById(R.id.songIndex);
-        bookNo = getIntent().getExtras().getInt("indexOfSong");
-        lang = getIntent().getExtras().getInt("indexOflang");
+        songsIndex.setPadding(10, 10, 10, 10);
+        int bookNo = getIntent().getExtras().getInt("indexOfSong");
+        int lang = getIntent().getExtras().getInt("indexOflang");
 
         switch(lang) {
             case 0:
                 bookName += BookNameConstant.TA_BOOK[bookNo];
+                bookType = BookType.SONGS;
                 break;
             case 1:
                 bookName += BookNameConstant.TE_BOOK[bookNo];
+                bookType = BookType.SONGS;
                 break;
             case 2:
                 bookName += BookNameConstant.E_BOOK[bookNo];
+                bookType = BookType.SONGS;
                 break;
             case 3:
                 bookName += BookNameConstant.H_BOOK[bookNo];
+                bookType = BookType.SONGS;
                 break;
             case 4:
                 bookName += BookNameConstant.GITA_BOOK[bookNo];
+                bookType = BookType.SCRIPT;
                 break;
         }
 
-        songs = renderIndex();
+        contents = renderIndex();
 
         int margin = 30;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(margin, margin, margin, 0);
+        generateIndex(params, songsIndex);
+    }
 
-        for(int i=0; i<songs.length; i++) {
-            book = new Button(this);
+    private void generateIndex(LinearLayout.LayoutParams params, LinearLayout songsIndex) {
+        for(int i=0; i<contents.length; i++) {
+            Button item = new Button(this);
 //            book.setAllCaps(false);
 //            if(bookName.equalsIgnoreCase("sofr")) {
 //                Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
 //                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
 //                book.setTypeface(tamilBibleBold);
 //            }
-            book.setText(songs[i]);
-            book.setId(i);
-            book.setBackgroundColor(getResources().getColor(R.color.button));
-            book.setLayoutParams(params);
-            book.setOnClickListener(v -> {
+            if(bookType.equals(BookType.SONGS)) {
+                item.setText(i+1+"."+contents[i]);
+            } else {
+                item.setText(contents[i]);
+            }
+            item.setGravity(Gravity.CENTER_VERTICAL);
+            item.setPadding(10, 10, 10, 10);
+            item.setId(i);
+            item.setBackgroundColor(getResources().getColor(R.color.button));
+            item.setLayoutParams(params);
+            item.setOnClickListener(v -> {
                 addClick(v.getId());
             });
-            songsIndex.addView(book);
+            songsIndex.addView(item);
         }
     }
 
-    public String[] renderIndex() {
+    private String[] renderIndex() {
         switch(bookName) {
             case "SofR" :
                 return IndexNameConstant.SofR;
@@ -99,6 +113,16 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.BG_T;
             case "BG_TE" :
                 return IndexNameConstant.BG_TE;
+            case "OTS" :
+                return IndexNameConstant.OTS;
+            case "OTSC" :
+                return IndexNameConstant.OTSC;
+            case "OTSE" :
+                return IndexNameConstant.OTSE;
+            case "OTSM" :
+                return IndexNameConstant.OTSM;
+            case "OTST" :
+                return IndexNameConstant.OTST;
         }
         return null;
     }
@@ -107,7 +131,8 @@ public class SongIndex extends AppCompatActivity {
         Intent intent = new Intent(this, SongPageViewer.class);
         intent.putExtra("bookName", bookName);
         intent.putExtra("songNo", n);
-        intent.putExtra("finishingSongNo", songs.length);
+        intent.putExtra("bookType", bookType);
+        intent.putExtra("finishingSongNo", contents.length);
         startActivity(intent);
     }
 }

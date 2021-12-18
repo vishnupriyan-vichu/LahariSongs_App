@@ -1,15 +1,15 @@
 package com.laharisongs;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+
+import com.laharisongs.IndexNameConstant.BookType;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,20 +25,27 @@ public class SongPageViewer extends AppCompatActivity {
     float mBaseRatio;
     float fontsize = 13;
     String bookName = "";
+    Bundle extras = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_page_viewer);
 
-        bookName = getIntent().getExtras().getString("bookName");
-        String song = bookName + "/" + bookName + (getIntent().getExtras().getInt("songNo") + 1);
+        extras = getIntent().getExtras();
+        bookName = extras.getString("bookName");
+        String song = bookName + "/" + bookName + (extras.getInt("songNo") + 1);
+        BookType bookType = (BookType) extras.get("bookType");
 
         textView = findViewById(R.id.textview);
         header = findViewById(R.id.header);
-        String text = "";
+        drawContent(song);
+    }
 
+    private void drawContent(String song) {
+        String text = "";
         BufferedReader reader = null;
+        Typeface tamilBibleBold = null;
         try {
             reader = new BufferedReader(
                     new InputStreamReader(getAssets().open(song), "UTF-8"));
@@ -48,7 +55,7 @@ public class SongPageViewer extends AppCompatActivity {
                 textView.setAllCaps(false);
                 header.setAllCaps(false);
                 Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
-                Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
+                tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
                 textView.setTypeface(tamilBibleBold);
                 header.setTypeface(tamilBibleBold);
             }
@@ -80,7 +87,7 @@ public class SongPageViewer extends AppCompatActivity {
                 textView.setText(text);
             }
             header.setTextSize(20);
-            header.setTypeface(null, Typeface.BOLD);
+            header.setTypeface(tamilBibleBold, Typeface.BOLD);
             header.setTextColor(getResources().getColor(R.color.black));
         } catch (IOException e) {
 
@@ -106,24 +113,24 @@ public class SongPageViewer extends AppCompatActivity {
     }
 
     public void gotoNextPage(View view) {
-        if((getIntent().getExtras().getInt("songNo")+1) < getIntent().getExtras().getInt("finishingSongNo")) {
+        if((extras.getInt("songNo")+1) < extras.getInt("finishingSongNo")) {
             getIntent().putExtra("bookName", bookName);
-            getIntent().putExtra("songNo", getIntent().getExtras().getInt("songNo") + 1);
+            getIntent().putExtra("songNo", extras.getInt("songNo") + 1);
             finish();
             startActivity(getIntent());
         }
     }
 
     public void gotoPreviousPage(View view) {
-        if((getIntent().getExtras().getInt("songNo")-1) >= 0) {
+        if((extras.getInt("songNo")-1) >= 0) {
             getIntent().putExtra("bookName", bookName);
-            getIntent().putExtra("songNo", getIntent().getExtras().getInt("songNo") - 1);
+            getIntent().putExtra("songNo", extras.getInt("songNo") - 1);
             finish();
             startActivity(getIntent());
         }
     }
 
-    public boolean doScale(MotionEvent event) {
+    private boolean doScale(MotionEvent event) {
         if (event.getPointerCount() == 2) {
             int action = event.getAction();
             int pureaction = action & MotionEvent.ACTION_MASK;
@@ -140,7 +147,7 @@ public class SongPageViewer extends AppCompatActivity {
         return true;
     }
 
-    int getDistance(MotionEvent event) {
+    private int getDistance(MotionEvent event) {
         int dx = (int) (event.getX(0) - event.getX(1));
         int dy = (int) (event.getY(0) - event.getY(1));
         return (int) (Math.sqrt(dx * dx + dy * dy));

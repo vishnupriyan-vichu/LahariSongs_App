@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LahariSongs">
-        <activity android:name=".SearchActivity"></activity>
+        <activity
+            android:name=".BooksListActivity"
+            android:exported="true" />
+        <activity android:name=".SearchActivity" />
         <activity android:name=".SongIndex" />
         <activity android:name=".SongPageViewer" />
         <activity android:name=".SongBooksListActivity" />

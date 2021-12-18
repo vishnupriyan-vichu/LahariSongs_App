@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Lahari Songs</string>
+    <string name="songs_button">🎶 Songs Books</string>
+    <string name="scriptures_button">📖 Scriptures books</string>
     <string name="tamil_button">தமிழ் பாடல்கள்</string>
     <string name="telugu_button">తెలుగు పాటలు</string>
     <string name="hindi_button">हिंदी गाने</string>
@@ -9,4 +11,5 @@
     <string name="telugu_gita">భగవద్గీత</string>
     <string name="previous">Previous button</string>
     <string name="next">Next button</string>
+    <string name="alt_text">Our Lord Liveth!</string>
 </resources>
