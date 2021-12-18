@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Lahari Songs</string>
     <string name="songs_button">🎶 Songs Books</string>
-    <string name="scriptures_button">📖 Scriptures books</string>
+    <string name="scriptures_button">📖 Scriptures</string>
     <string name="tamil_button">தமிழ் பாடல்கள்</string>
     <string name="telugu_button">తెలుగు పాటలు</string>
     <string name="hindi_button">हिंदी गाने</string>
