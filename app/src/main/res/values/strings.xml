@@ -9,7 +9,7 @@
     <string name="english_gita">Bhagavad Gita</string>
     <string name="tamil_gita">பகவத் கீதை</string>
     <string name="telugu_gita">భగవద్గీత</string>
-    <string name="previous">Previous button</string>
-    <string name="next">Next button</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
     <string name="alt_text">Our Lord Liveth!</string>
 </resources>
