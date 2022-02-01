@@ -2,6 +2,7 @@ package com.laharisongs;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -38,6 +39,8 @@ public class SongPageViewer extends AppCompatActivity {
         BookType bookType = (BookType) extras.get("bookType");
 
         textView = findViewById(R.id.textview);
+        /*ScrollingMovementMethod movementMethod = new ScrollingMovementMethod();
+        textView.setMovementMethod(movementMethod);*/
         header = findViewById(R.id.header);
         drawContent(song);
     }
@@ -67,6 +70,8 @@ public class SongPageViewer extends AppCompatActivity {
                     if(mLine.contains("\\cover\\")) {
                         isCover = true;
                         text += mLine.replace("\\cover\\", "      ") + "\n";
+                    } else if(mLine.length()>0 && isNumeric(mLine.charAt(0)+"")) {
+                        text += "\n" + mLine.replace("\\t", "     ") + "\n";
                     } else {
                         text += mLine.replace("\\t", "     ") + "\n";
                     }
@@ -82,7 +87,11 @@ public class SongPageViewer extends AppCompatActivity {
                 mLine = reader.readLine().replace("\\t", "  ");
                 header.setText(mLine);
                 while ((mLine = reader.readLine()) != null) {
-                    text += mLine.replace("\\t", "     ") + "\n";
+                    if(mLine.length()>0 && isNumeric(mLine.charAt(0)+"")) {
+                        text += "\n" + mLine.replace("\\t", "     ") + "\n";
+                    } else {
+                        text += mLine.replace("\\t", "     ") + "\n";
+                    }
                 }
                 textView.setText(text);
             }
@@ -151,5 +160,14 @@ public class SongPageViewer extends AppCompatActivity {
         int dx = (int) (event.getX(0) - event.getX(1));
         int dy = (int) (event.getY(0) - event.getY(1));
         return (int) (Math.sqrt(dx * dx + dy * dy));
+    }
+
+    private boolean isNumeric(String numericString) {
+        try {
+            Integer intValue = Integer.parseInt(numericString);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

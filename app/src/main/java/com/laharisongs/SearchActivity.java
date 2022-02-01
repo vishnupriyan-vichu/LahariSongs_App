@@ -94,15 +94,21 @@ public class SearchActivity extends AppCompatActivity {
                 indexedToSearch.put("SofR", Arrays.asList(IndexNameConstant.SofR));
                 indexedToSearch.put("IG", Arrays.asList(IndexNameConstant.IG));
                 indexedToSearch.put("LN",Arrays.asList(IndexNameConstant.LN));
+                indexedToSearch.put("OTSC",Arrays.asList(IndexNameConstant.OTSC));
+                indexedToSearch.put("OTSM",Arrays.asList(IndexNameConstant.OTSM));
+                indexedToSearch.put("OTST",Arrays.asList(IndexNameConstant.OTST));
+                indexedToSearch.put("OTS",Arrays.asList(IndexNameConstant.OTS));
                 break;
             case 1:
                 indexedToSearch.put("GN", Arrays.asList(IndexNameConstant.GN));
                 indexedToSearch.put("PS", Arrays.asList(IndexNameConstant.PS));
+                indexedToSearch.put("LK", Arrays.asList(IndexNameConstant.LK));
                 break;
             case 2:
                 indexedToSearch.put("ES", Arrays.asList(IndexNameConstant.ES));
                 indexedToSearch.put("EC", Arrays.asList(IndexNameConstant.EC));
                 indexedToSearch.put("GHc", Arrays.asList(IndexNameConstant.GHc));
+                indexedToSearch.put("OTSE", Arrays.asList(IndexNameConstant.OTSE));
                 break;
             case 3:
                 indexedToSearch.put("HS", Arrays.asList(IndexNameConstant.HS));
