@@ -60,7 +60,7 @@ public class IndexNameConstant {
             "Safe am I, safe am I", "Some trust in chariots", "Someone came down and lifted me", "Spirit of the living God", "Stand by me, stand by me", "Stand the storm", "Surely goodness and mercy",
             "Sweeter as the days go by", "Thank you Lord", "The B-I-B-L-E", "The love of Jesus is wonderful", "There is power, power", "Thou art worthy", "Trust in the Lord and don't despair",
             "Turn your eyes upon Jesus", "Walking with Jesus", "We bless Thee, bless Thee Lord God", "We bless Thee, our blessed Lord God", "We shall overcome", "Wide, wide as the ocean",
-            "With Christ in the vessel", "What the world needs is Jesus", "When Noah entered the ark", "WhereHe leads me", "Whiter than the snow", "Wonderful wonderful", "Yesterday, today, forever",
+            "With Christ in the vessel", "What the world needs is Jesus", "When Noah entered the ark", "Where He leads me", "Whiter than the snow", "Wonderful wonderful", "Yesterday, today, forever",
             "You're on my right side"};
 
     public static final String[] GHc = {"Alles ist eitel Du aber bleibst (German)", "Danket danket dem Herrn (German)", "Hevenu Shalom alekhem (Hebrew)", "Lasst uns miteinander (German)",

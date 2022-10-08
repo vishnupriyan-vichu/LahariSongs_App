@@ -59,8 +59,8 @@ public class SongPageViewer extends AppCompatActivity {
                 header.setAllCaps(false);
                 Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
                 tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
-                textView.setTypeface(tamilBibleBold);
                 header.setTypeface(tamilBibleBold);
+                textView.setTypeface(tamilBible);
             }
             if(song.endsWith("1")) {
                 mLine = reader.readLine().replace("\\t", "  ");
