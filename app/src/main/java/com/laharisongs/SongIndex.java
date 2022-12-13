@@ -123,8 +123,13 @@ public class SongIndex extends AppCompatActivity {
                 return IndexNameConstant.OTSM;
             case "OTST" :
                 return IndexNameConstant.OTST;
+            case "CMTA" :
+                return IndexNameConstant.CMTA;
+            case "CMTE" :
+                return IndexNameConstant.CMTE;
+            default:
+                return null;
         }
-        return null;
     }
 
     public void addClick(int n) {
