@@ -83,7 +83,7 @@ public class LanguagesActivity extends AppCompatActivity {
     }
 
     private void createGitaIntent(String language) {
-        Intent intent = new Intent(this, SongIndexActivity.class);
+        Intent intent = new Intent(this, IndexActivity.class);
         intent.putExtra("indexOfSong", language);
         intent.putExtra("bookType", 2);
         startActivity(intent);

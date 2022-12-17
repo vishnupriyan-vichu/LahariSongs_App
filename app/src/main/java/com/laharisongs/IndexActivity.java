@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.laharisongs.util.IndexNameConstant;
 import com.laharisongs.util.IndexNameConstant.BookType;
 
-public class SongIndexActivity extends AppCompatActivity {
+public class IndexActivity extends AppCompatActivity {
 
     private String[] contents = null;
     private String bookKey = "";
@@ -56,7 +56,7 @@ public class SongIndexActivity extends AppCompatActivity {
     }
 
     public void addClick(int n) {
-        Intent intent = new Intent(this, SongPageViewerActivity.class);
+        Intent intent = new Intent(this, ViewerActivity.class);
         System.out.println(bookKey + n);
         intent.putExtra("bookName", bookKey);
         intent.putExtra("songNo", n);

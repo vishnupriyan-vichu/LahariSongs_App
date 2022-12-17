@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class SongPageViewerActivity extends AppCompatActivity {
+public class ViewerActivity extends AppCompatActivity {
     TextView textView;
     TextView header;
     final static float STEP = 200;

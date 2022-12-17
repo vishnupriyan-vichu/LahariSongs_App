@@ -74,7 +74,7 @@ public class SearchActivity extends AppCompatActivity {
                         listView.setAdapter(adapter);
 
                         listView.setOnItemClickListener((parent, view, position, id) -> {
-                            Intent intent1 = new Intent(instance, SongPageViewerActivity.class);
+                            Intent intent1 = new Intent(instance, ViewerActivity.class);
                             intent1.putExtra("bookName", result.get(position).split("/")[0]);
                             intent1.putExtra("songNo", Integer.parseInt(result.get(position).split("/")[1]));
                             intent1.putExtra("finishingSongNo", noOfSongs);

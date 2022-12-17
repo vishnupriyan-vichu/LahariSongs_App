@@ -87,7 +87,7 @@ public class SongBooksListActivity extends AppCompatActivity {
     }
 
     public void afterClick(String bookKey) {
-        Intent intent = new Intent(this, SongIndexActivity.class);
+        Intent intent = new Intent(this, IndexActivity.class);
         intent.putExtra("indexOfSong", bookKey);
         intent.putExtra("bookType", 1);
         startActivity(intent);
