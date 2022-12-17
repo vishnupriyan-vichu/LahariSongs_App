@@ -2,15 +2,14 @@ package com.laharisongs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-public class MainActivity extends AppCompatActivity {
+import com.laharisongs.util.BookNameConstants;
+import com.laharisongs.util.IndexNameConstant;
 
-    Button songsBook;
-    Button scripturesBook;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +17,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        songsBook = findViewById(R.id.songsBook);
-        scripturesBook = findViewById(R.id.scripturesBook);
-
-        songsBook.setOnClickListener(v -> {
-            createBookActivity(BookConstant.SONGS_BOOKS);
+        findViewById(R.id.songsBook).setOnClickListener(v -> {
+            createBookActivity(IndexNameConstant.BookType.SONGS);
         });
-        scripturesBook.setOnClickListener(v -> {
-            createBookActivity(BookConstant.SCRIPTURES_BOOKS);
+        findViewById(R.id.scripturesBook).setOnClickListener(v -> {
+            createBookActivity(IndexNameConstant.BookType.SCRIPT);
         });
     }
 
-    protected void createBookActivity(BookConstant language) {
-        Intent intent = new Intent(this, BooksListActivity.class);
-        intent.putExtra(BookConstant.TYPE_SELECTED, language.name());
+    protected void createBookActivity(IndexNameConstant.BookType bookType) {
+        Intent intent = new Intent(this, LanguagesActivity.class);
+        intent.putExtra(BookNameConstants.TYPE_SELECTED, bookType.getId());
         startActivity(intent);
     }
 

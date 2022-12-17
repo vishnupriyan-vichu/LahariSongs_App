@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LahariSongs">
         <activity
-            android:name=".BooksListActivity"
+            android:name=".LanguagesActivity"
             android:exported="true" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".SongIndex" />
-        <activity android:name=".SongPageViewer" />
+        <activity android:name=".SongIndexActivity" />
+        <activity android:name=".SongPageViewerActivity" />
         <activity android:name=".SongBooksListActivity" />
         <activity android:name=".MainActivity"
             android:exported="true">
