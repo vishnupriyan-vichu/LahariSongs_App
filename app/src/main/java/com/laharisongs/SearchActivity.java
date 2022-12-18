@@ -36,7 +36,8 @@ public class SearchActivity extends AppCompatActivity {
 
     public void setUpRequired() {
         Intent intent = getIntent();
-        lang = Integer.parseInt(intent.getStringExtra("lang"));
+        System.out.println("lang " + lang);
+        lang = intent.getIntExtra("lang", 0);
 
         HashMap<String, String[]> indexedToSearch = new HashMap<>();
 
@@ -91,7 +92,7 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
-        loadBookNames(lang, indexedToSearch);
+        loadBookNames(indexedToSearch);
 //        switch(lang) {
 //            case 0:
 //                indexedToSearch.put("SofR", Arrays.asList(IndexNameConstant.SofR));
@@ -123,7 +124,7 @@ public class SearchActivity extends AppCompatActivity {
 //        }
     }
 
-    private void loadBookNames(int lang, Map<String, String[]> indexToSearch) {
+    private void loadBookNames(Map<String, String[]> indexToSearch) {
         BookNameConstants.BooksConstant books = BookNameConstants.BooksConstant.getBooks(lang);
         List<String> bookKeys = books.getBookKeys();
         if (bookKeys != null) {

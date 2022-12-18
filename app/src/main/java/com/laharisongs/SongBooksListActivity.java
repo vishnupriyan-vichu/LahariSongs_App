@@ -39,25 +39,22 @@ public class SongBooksListActivity extends AppCompatActivity {
         switch (language) {
             case BookNameConstants.LangKey.TAMIL:
                 bookConstant = BooksConstant.TAMIL_BOOKS;
-                lang = 0;
                 languageView.setText(getString(R.string.tamil_button));
                 break;
             case BookNameConstants.LangKey.TELUGU:
                 bookConstant = BooksConstant.TELUGU_BOOKS;
-                lang = 1;
                 languageView.setText(getString(R.string.telugu_button));
                 break;
             case BookNameConstants.LangKey.ENGLISH:
                 bookConstant = BooksConstant.ENGLISH_BOOKS;
-                lang = 2;
                 languageView.setText(getString(R.string.english_button));
                 break;
             case BookNameConstants.LangKey.HINDI:
                 bookConstant = BooksConstant.HINDI_BOOKS;
-                lang = 3;
                 languageView.setText(getString(R.string.hindi_button));
                 break;
         }
+        lang = bookConstant.getLang();
 
         languageView.setTextSize(28f);
         languageView.setPadding(10, 10, 10, 10);
@@ -66,7 +63,7 @@ public class SongBooksListActivity extends AppCompatActivity {
         params.setMargins(0, 10, 0, 10);
         for (String bookKey : bookConstant.getBookKeys()) {
             book = new Button(this);
-            if (lang == 0) {
+            if (lang == BooksConstant.TAMIL_BOOKS.getLang()) {
                 book.setAllCaps(false);
                 Typeface tamilBible = ResourcesCompat.getFont(this, R.font.tamil_bible);
                 Typeface tamilBibleBold = Typeface.create(tamilBible, Typeface.BOLD);
@@ -82,7 +79,7 @@ public class SongBooksListActivity extends AppCompatActivity {
 
     public void openSearchActivity(View v) {
         Intent intent = new Intent(this, SearchActivity.class);
-        intent.putExtra("lang", lang + "");
+        intent.putExtra("lang", lang);
         startActivity(intent);
     }
 
