@@ -18,7 +18,7 @@ public class BookNameConstants {
 //        GITA_BOOK(5, 2, new String[] {"BG_E:-:", "BG_T:-:", "BG_TE:-:"})
 
         TAMIL_BOOKS(1, new String[]{BookKey.SOFR + ":-:= y`hp ehk kfpik fPjq;fs;", BookKey.IG + ":-:,ja fPjk;", BookKey.LN + ":-:= y`hp ehk rq;fPu;j;jdk;", BookKey.OTS + ":-:Njt ePjpapd; ghly;fs;", BookKey.SOFRII + ":-:Njt ePjpapd; ghly;fs; - 2", BookKey.OTST + ":-:njYF ghly;fs;", BookKey.OTSM + ":-:kiyahsk;", BookKey.OTSC + ":-:gy;ytpfs;", BookKey.CMTA + ":-:$lhug; gz;bif - 2022"}),
-        TELUGU_BOOKS(2, new String[]{BookKey.GN + ":-:గానామృతము", BookKey.PS + ":-:గురుదేవ్ శ్రీ లహరి నామ సంకీర్తనం", BookKey.LK + ":-:లహరి నామ కీర్తనలు", BookKey.CMTE + ":-:గుడారాల పండుగ - 2022"}),
+        TELUGU_BOOKS(2, new String[]{BookKey.GN + ":-:గానామృతము", BookKey.PS + ":-:గురుదేవ్ శ్రీ లహరి నామ సంకీర్తనం", BookKey.LK + ":-:లహరి నామ కీర్తనలు", BookKey.PK + ":-:పరమ కానాను గీతములు", BookKey.CMTE + ":-:గుడారాల పండుగ - 2022"}),
         ENGLISH_BOOKS(3, new String[]{BookKey.ES + ":-:Enlgish songs", BookKey.EC + ":-:English chorus", BookKey.GHc + ":-:German and Hebrew chorus", BookKey.OTSE + ":-:Songs of God's Righteousness"}),
         HINDI_BOOKS(4, new String[]{BookKey.HS + ":-:లహరి నమ గీతము", BookKey.HP + ":-:గురుదేవ్ శ్రీ లహరి నామ సంకీర్తనం"}),
         GITA_BOOK(5, new String[]{BookKey.BG_E + ":-:", BookKey.BG_TA + ":-:", BookKey.BG_TE + ":-:"});
@@ -80,6 +80,7 @@ public class BookNameConstants {
         public static final String GN = "GN";
         public static final String PS = "PS";
         public static final String LK = "LK";
+        public static final String PK = "PK-G";
         public static final String CMTE = "CMTE";
         public static final String ES = "ES";
         public static final String EC = "EC";
