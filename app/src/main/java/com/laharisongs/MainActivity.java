@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        loadListeners();
+    }
+
+    private void loadListeners() {
         findViewById(R.id.songsBook).setOnClickListener(v -> {
             createBookActivity(IndexNameConstant.BookType.SONGS);
         });
