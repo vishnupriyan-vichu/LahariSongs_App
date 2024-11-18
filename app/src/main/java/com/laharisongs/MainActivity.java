@@ -6,8 +6,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.laharisongs.util.BookNameConstants;
-import com.laharisongs.util.IndexNameConstant;
+import com.laharisongs.BookNameConstants;
+import com.laharisongs.IndexNameConstant;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -8,8 +8,8 @@ import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.laharisongs.util.BookNameConstants;
-import com.laharisongs.util.IndexNameConstant;
+import com.laharisongs.BookNameConstants;
+import com.laharisongs.IndexNameConstant;
 
 import java.util.ArrayList;
 import java.util.HashMap;

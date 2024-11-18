@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.laharisongs.util.IndexNameConstant;
-import com.laharisongs.util.IndexNameConstant.BookType;
+import com.laharisongs.IndexNameConstant;
+import com.laharisongs.IndexNameConstant.BookType;
 
 public class IndexActivity extends AppCompatActivity {
 

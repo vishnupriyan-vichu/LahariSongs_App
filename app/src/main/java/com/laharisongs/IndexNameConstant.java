@@ -1,4 +1,4 @@
-package com.laharisongs.util;
+package com.laharisongs;
 
 import java.util.HashMap;
 import java.util.Map;

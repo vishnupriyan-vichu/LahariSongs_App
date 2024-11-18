@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-import com.laharisongs.util.BookNameConstants;
-import com.laharisongs.util.BookNameConstants.BooksConstant;
+import com.laharisongs.BookNameConstants;
+import com.laharisongs.BookNameConstants.BooksConstant;
 
 public class SongBooksListActivity extends AppCompatActivity {
 
